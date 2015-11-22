@@ -14,6 +14,7 @@ var Game = function(dots, instance, fps){
 
   var step = () => {
     if(gameOver) return;
+    if(gameWon) return;
     instance.step();
   };
 
@@ -68,7 +69,7 @@ var Game = function(dots, instance, fps){
   this.won = () => {
     gameWon = true;
     setTimeout(() => {
-      gameOver = false;
+      gameWon = false;
       instance.start();
     }, 5000);
   };
